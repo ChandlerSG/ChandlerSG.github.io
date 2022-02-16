@@ -51,7 +51,7 @@
                 margin-right: 25px;
                 padding: 10px;
             }
-            .sidebar-img {
+            .sidebar-img 
                 width: 200px;
             }
             .content {
@@ -70,14 +70,14 @@
    
     <body>
         <!-- All content goes here -->
-        <div> 
+        <div id="all-contents">
             <nav>
                 <h1>Chandlers Website</h1>
-                <ul>
-                    <li>
+                <ul id="nav-ul">
+                    <li class="nav-li">
                       <a href="index.html"> Home </a>
                     </li>
-                    <li>
+                    <li class="nav-li">
                       <a href="portfolio.html"> Portfolio </a>
                     </li>
                 </ul>
@@ -86,17 +86,18 @@
             <main>
                 <!-- Sidebar section -->
                 <div>
-                    <img src="https://lh3.googleusercontent.com/S-uvA-Uu1NVlYOHuyIP4Ykre0pWufyz7YUmhtAz4dEbTrgZnkL_KXFx_GBf197kl46vdIlM=s85"> 
+                    <img "sidebar-img" src="https://lh3.googleusercontent.com/S-uvA-Uu1NVlYOHuyIP4Ykre0pWufyz7YUmhtAz4dEbTrgZnkL_KXFx_GBf197kl46vdIlM=s85"> 
                 </div>
                 <!--content Section-->
                
-                <div>
+                <div class="content">
+                    
                     
                     <h2>Chandlers Sherrod</h2>
                     <p>Student at Denham Springs High School</p>
                     <!--interest section-->
                     
-                    <div>
+                    <div #"interest">
                         <h3>Interest</h3>
                         <ul>
                             <li>Music</li>
