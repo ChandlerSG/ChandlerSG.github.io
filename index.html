@@ -1,34 +1,111 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Chandlers Website</title>
-    
+        <title> Chandlers Website </title>
+        <style>
+            
+           
+            body {
+                background: rgb(92, 28, 165);
+                color: rgb(45, 45, 45);
+                padding: 10px;
+                font-family: arial;
+            }
+            #all-contents {
+              max-width: 800px;
+                margin: auto;
+            }
+         
+            /* navigation menu */
+            nav {
+                background: rgb(155, 29, 167);
+               margin: 0 auto;
+                display: flex;
+                padding: 10px;
+            }
+            h1 {
+                display: flex;
+                align-items: center;
+                color: white;
+                flex: 1;
+                margin: 0;
+            }
+            #nav-ul {
+                list-style-image: none;
+            }
+            .nav-li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+         
+            /* main container area beneath menu */
+            main {
+                background: rgb(255, 238, 0);
+                display: flex;
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+            }
+            .sidebar-img {
+                width: 200px;
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+            #interests {
+                border: 4px rgb(5, 0, 0) ridge;
+                padding: 8px;
+            }
+            h2, h3 {
+                margin: 0px;
+            }
+         </style>
     </head>
-    
+   
     <body>
-        <div>
-            <h2>Chandler Sherrod
+        <!-- All content goes here -->
+        <div> 
             <nav>
-
+                <h1>Chandlers Website</h1>
+                <ul>
+                    <li>
+                      <a href="index.html"> Home </a>
+                    </li>
+                    <li>
+                      <a href="portfolio.html"> Portfolio </a>
+                    </li>
+                </ul>
             </nav>
             
             <main>
+                <!-- Sidebar section -->
                 <div>
-                    <h2>Chandlers Website</h2>
+                    <img src="https://lh3.googleusercontent.com/S-uvA-Uu1NVlYOHuyIP4Ykre0pWufyz7YUmhtAz4dEbTrgZnkL_KXFx_GBf197kl46vdIlM=s85"> 
+                </div>
+                <!--content Section-->
+               
+                <div>
+                    
+                    <h2>Chandlers Sherrod</h2>
                     <p>Student at Denham Springs High School</p>
+                    <!--interest section-->
+                    
                     <div>
                         <h3>Interest</h3>
                         <ul>
-                            <li>thing 1</li>
-                            <li>thing 2</li>
-                            <li>thing 3</li>
+                            <li>Music</li>
+                            <li>Technology</li>
+                            <li>Video Games</li>
                         </ul>
                     </div>
                 </div>
-                <div>
-
-
-                </div>
+                
 
 
             </main>
