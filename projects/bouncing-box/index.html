@@ -6,18 +6,21 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 70px;
-			height: 70px;
-			background-color: teal;
+			width: 100px;
+			height: 100px;
+			background-image:url("https://e7.pngegg.com/pngimages/955/767/png-clipart-box-jpeg-tiff-box.png");
+			background-size: 100% 100%;
 			font-size: 300%;
 			text-align: center;
 			display: block;
 			position: absolute;
-			top: 100px;
-			left: 0px;  /* <--- Change me! */
+			top: 350px;
+			left: 350px;  /* <--- Change me! */
 		}
 		.board{
 			height: 100vh;
+			background-image: url("https://www.charlotteobserver.com/latest-news/i9hrj1/picture256602771/alternates/FREE_1140/AP21344776661439.jpg");
+			background-size: 100% 100%;
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -41,14 +44,14 @@
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 
 			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
+			setInterval(update, 1000/60);
 			
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX) {
-				box.css("left", newPositionX);
+				box.css("left",newPositionX );
 			}
 
 			// changes the text displayed on the Box
@@ -62,6 +65,9 @@
 			
 			// TODO 2 - Variable declarations 
 			
+			var positionX = 0;
+			var points = 0
+			var speed = 10
 
 			
 			/* 
@@ -70,6 +76,18 @@
 			turn it around! 
 			*/
 			function update() {
+				/*
+				your code needs to increase positionX by 10 HERE
+				*/
+				positionX= positionX + speed;
+				moveBoxTo(positionX);
+				if (positionX >= boardWidth) {
+					speed= -speed;
+				}
+				if (positionX < 0) {
+					speed = -speed
+				}
+				
 				
 
 			};
@@ -80,8 +98,17 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
+				positionX = 0;
+				// your code to increase the points variable by 1
+				points = points + 1;
+				changeBoxText(points);
+				if (speed > 0) {
+					speed= speed + 3
+				}
+				else {
+					speed= speed - 3
+				}
 				
-
 
 			};
 		})();
