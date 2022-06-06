@@ -16,7 +16,25 @@ function runProgram(){
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keydown', handleKeyDown); 
+  var KEY = {
+    "ENTER": 13,
+    "LEFT": 37,
+    "RIGHT" : 39,
+    "UP" : 38,
+    "DOWN" : 40,
+     }
+     var positionX = 0
+     var positionY = 0
+     var speedX = 0
+     var speedY = 0
+
+  
+
+
+
+
+                          // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -34,7 +52,24 @@ function runProgram(){
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
+  function handleKeyDown(event) {
+    
+    if (event.which === 13){
+      $("p").text("enter pressed");
+    }
+    else if (event.which === 37){
+      $("p").text("left pressed");
+    }
+    else if (event.which === 38){
+      $("p").text("up pressed");
+    }
+    else if (event.which === 39){
+      $("p").text("right pressed");
+    }
+    else if (event.which === 40){
+      $("p").text("down pressed");
+    }
+
 
   }
 
