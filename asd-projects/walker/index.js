@@ -1,8 +1,8 @@
 /* global $, sessionStorage */
 
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
-  
-function runProgram(){
+
+function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -10,31 +10,32 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  
+
   // Game Item Objects
 
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('keydown', handleKeyDown); 
+  $(document).on('keydown', handleKeyDown);
+  $(document).on('keyup', handleKeyUp);
   var KEY = {
     "ENTER": 13,
     "LEFT": 37,
-    "RIGHT" : 39,
-    "UP" : 38,
-    "DOWN" : 40,
-     }
-     var positionX = 0
-     var positionY = 0
-     var speedX = 0
-     var speedY = 0
-
-  
+    "RIGHT": 39,
+    "UP": 38,
+    "DOWN": 40,
+  }
+  var positionX = 0
+  var positionY = 0
+  var speedX = 0
+  var speedY = 0
 
 
 
 
-                          // change 'eventType' to the type of event you want to handle
+
+
+  // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -45,39 +46,81 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
+    repositionGameItem();
+    redrawGameItem();
 
   }
-  
+
   /* 
   Called in response to events.
   */
   function handleKeyDown(event) {
-    
-    if (event.which === 13){
+
+    if (event.which === 13) {
       $("p").text("enter pressed");
+      $('#walker').css("background-color" , `rgb(${randomRGB()}, ${randomRGB()}, ${randomRGB()})`);
     }
-    else if (event.which === 37){
+    else if (event.which === 37) {
+      speedX = -5
       $("p").text("left pressed");
     }
-    else if (event.which === 38){
+    else if (event.which === 38) {
+      speedY = -5
       $("p").text("up pressed");
     }
-    else if (event.which === 39){
+    else if (event.which === 39) {
+      speedX = 5
       $("p").text("right pressed");
     }
-    else if (event.which === 40){
+    else if (event.which === 40) {
+      speedY = 5
       $("p").text("down pressed");
     }
 
 
+
   }
+  function handleKeyUp(event){
+     if (event.which === 37) {
+      speedX = 0
+      $("p").text("left released");
+    }
+    else if (event.which === 38) {
+      speedY = 0
+      $("p").text("up released");
+    }
+    else if (event.which === 39) {
+      speedX = 0
+      $("p").text("right released");
+    }
+    else if (event.which === 40) {
+      speedY = 0
+      $("p").text("down released");
+    }
+    
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+  
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  
+  function randomRGB(){
+    return Math.floor(Math.random() * 256);
+  }
+
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
@@ -85,5 +128,17 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-  
+
+
+  function repositionGameItem() {
+    positionX += speedX;
+    positionY += speedY;
+  }
+
+
+  function redrawGameItem() {
+    $("#walker").css("left", positionX);    // draw the box in the new location, positionX pixels away from the "left"
+    $("#walker").css("top", positionY);
+  }
+
 }
