@@ -27,6 +27,7 @@ body {
 }
 
 #head{
+  border-radius: 20px;
   background-color: #C5E90B;
   width : 20px;
   height: 20px;
